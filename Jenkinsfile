@@ -3,7 +3,7 @@ pipeline {
     environment {
         PATH = "/opt/maven/bin:$PATH"
         
-        imagename = "johnoverboard/hello-world-1"
+        imagename = "johnoverboard/hello-world-2"
         registryCredential = 'ca9400ea-ddce-414a-a821-55a0daf01fc0'
         dockerImage = ''
 
@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage("clone code"){
             steps{
-               git credentialsId: 'git_credentials', url: 'https://github.com/joelvzach/hello-world-1.git'
+               git credentialsId: 'git_credentials', url: 'https://github.com/joelvzach/hello-world-2.git'
             }
         }
         stage("build code"){
@@ -30,6 +30,7 @@ pipeline {
             }
         }
         
+        /* 
         stage('Upload Image') {
         steps{    
          script {
@@ -39,6 +40,7 @@ pipeline {
             }
         }
       }
+      */
         
        /* stage("deploy"){
             steps{
